@@ -1,14 +1,13 @@
 import { useTheme } from '@emotion/react'
-import { IconButton, Toolbar, AppBar, Typography, Box, Button, Avatar, MenuItem, Menu } from '@mui/material'
+import { IconButton, Toolbar, AppBar, Box, Avatar, Menu, MenuItem } from '@mui/material'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { DarkModeOutlined, LightModeOutlined, AssignmentRounded } from '@mui/icons-material'
+import MenuIcon from '@mui/icons-material/Menu';
 import { setMode } from '../features/theme/themeSlice'
 import FlexBetween from './FlexBetween'
-import LogoIcon from '../assets/LogoIcon'
 
-
-const Navbar = () => {
+const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
     const dispatch = useDispatch()
     const theme = useTheme()
 
@@ -21,50 +20,19 @@ const Navbar = () => {
         setAnchorEl(null);
     };
 
-    const navItems = [{
-        text: 'My Info'
-    },
-    {
-        text: 'My Assets'
-    },
-    {
-        text: 'Attendance'
-    },
-    {
-        text: 'Documents'
-    },
-    {
-        text: 'Pay Roll'
-    },
-    {
-        text: 'My Organization'
-    },
-    {
-        text: 'Dashboard'
-    }
-    ]
 
     return (
-        <AppBar color='primary' sx={{ backgroundColor: theme.palette.primary[900], position: 'static', boxShadow: 'none' }}>
+        <AppBar sx={{ width: "100%", backgroundColor: theme.palette.primary[900], position: 'static', boxShadow: 'none' }}>
             <Toolbar sx={{ justifyContent: 'space-between' }}>
                 <FlexBetween>
-                    <Button sx={{ textTransform: 'none' }}>
-                        <LogoIcon />
-                        <Typography sx={{ fontSize: '1.5rem' }} fontWeight='bold' color={theme.palette.primary[200]}>
-                            WorkWise
-                        </Typography>
-                    </Button>
+                    <IconButton onClick={() => { setIsSidebarOpen(!isSidebarOpen) }}>
+                        <MenuIcon />
+                    </IconButton>
                 </FlexBetween>
 
-                <Box display='flex' sx={{ justifyContent: 'space-between' }}>
-                    {navItems.map((item) => (
-                        <Button sx={{ textTransform: 'none' }}>
-                            <Typography sx={{ m: '1rem' }} key={item.text}>{item.text}</Typography>
-                        </Button>
-                    ))}
-                </Box>
 
                 <Box>
+
                     <IconButton>
                         <AssignmentRounded />
                     </IconButton>

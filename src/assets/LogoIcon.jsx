@@ -2,9 +2,9 @@ import React from 'react'
 import { Box } from '@mui/material'
 import Logo from './ww_icon.png'
 
-const LogoIcon = () => {
+const LogoIcon = ({ size }) => {
     return (
-        <Box sx={{ width: '3.2rem' }}>
+        <Box sx={{ width: size }}>
             <img src={Logo} />
         </Box>
     )

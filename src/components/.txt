@@ -1,0 +1,9 @@
+
+import LogoIcon from '../assets/LogoIcon'
+
+  <Button sx={{ textTransform: 'none' }}>
+                        <LogoIcon />
+                        <Typography sx={{ fontSize: '1.5rem' }} fontWeight='bold' color={theme.palette.primary[200]}>
+                            WorkWise
+                        </Typography>
+                    </Button>
